@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-facade-xml type="demo">
+
+    <moqui.training.MoquiTraining trainingId="104" trainingName="Moqui Training 3" trainingDate="2021-06-18" trainingPrice="2000" trainingDuration="2.0" />
+    <moqui.training.MoquiTraining trainingId="106" trainingName="Moqui Training 6" trainingDate="2021-06-19" trainingPrice="3000" trainingDuration="3.0" />
+
+</entity-facade-xml>
