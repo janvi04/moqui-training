@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-2.1.xsd">
+
+<!--    <service verb="create" noun="MoquiTraining" type="entity-auto">-->
+<!--        <in-parameters><auto-parameters entity-name="moqui.training.MoquiTraining" include="nonpk"/></in-parameters>-->
+<!--        <out-parameters><parameter name="trainingId"/></out-parameters>-->
+<!--    </service>-->
+
+<!--    <service verb="create" noun="MoquiTraining">-->
+<!--        <in-parameters>-->
+<!--            <auto-parameters entity-name="moqui.training.MoquiTraining" include="nonpk"/>-->
+<!--            <parameter name="trainingName" required="true"/>-->
+
+<!--        </in-parameters>-->
+<!--        <out-parameters><parameter name="trainingId"/></out-parameters>-->
+<!--        <actions>-->
+<!--            <service-call name="create#moqui.training.MoquiTraining" in-map="context"/>-->
+<!--        </actions>-->
+<!--    </service>-->
+
+    <service verb="create" noun="MoquiTrainingGroovy" type="script"
+             location="component://moqui-training/service/moqui-training/createTraining.groovy">
+        <in-parameters>
+            <auto-parameters entity-name="moqui.training.MoquiTraining" include="nonpk"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="trainingId"/>
+        </out-parameters>
+    </service>
+</services>
