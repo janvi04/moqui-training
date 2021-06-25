@@ -85,4 +85,22 @@
     </service>
 
 
+<!--Creating a Product with its name, description, price and priceUomId-->
+    <service verb="create" noun="ProductPriceExample">
+    <in-parameters>
+
+        <parameter name="productName"/>
+        <parameter name="description"/>
+        <parameter name="price" />
+        <parameter name="priceUomId" default-value="USD"/>
+
+    </in-parameters>
+
+        <out-parameters><parameter name="productId"/></out-parameters>
+        <actions>
+            <service-call name="create#mantle.product.Product" in-map="context" out-map="context"></service-call>
+            <service-call name="create#mantle.product.ProductPrice" in-map="context" out-map="context"></service-call>
+        </actions>
+    </service>
+
 </services>
