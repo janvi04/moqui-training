@@ -99,7 +99,10 @@
         <out-parameters><parameter name="productId"/></out-parameters>
         <actions>
             <service-call name="create#mantle.product.Product" in-map="context" out-map="context"></service-call>
-            <service-call name="create#mantle.product.ProductPrice" in-map="context" out-map="context"></service-call>
+            <if condition = "price">
+                <service-call name="create#mantle.product.ProductPrice" in-map="context" out-map="context"></service-call>
+            </if>
+
         </actions>
     </service>
 
