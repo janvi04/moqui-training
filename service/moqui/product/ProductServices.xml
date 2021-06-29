@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-2.1.xsd">
+
+    <!--Creating a Product with its name, description, price and priceUomId-->
+    <service verb="create" noun="ProductPriceExample">
+        <in-parameters>
+
+            <parameter name="productName"/>
+            <parameter name="description"/>
+            <parameter name="price" />
+            <parameter name="priceUomId" default-value="USD"/>
+
+        </in-parameters>
+
+        <out-parameters><parameter name="productId"/></out-parameters>
+
+        <actions>
+            <service-call name="create#mantle.product.Product" in-map="context" out-map="context"></service-call>
+            <if condition = "price">
+                <service-call name="create#mantle.product.ProductPrice" in-map="context" out-map="context"></service-call>
+            </if>
+        </actions>
+
+    </service>
+
+
+
+
+</services>

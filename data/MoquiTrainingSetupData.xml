@@ -1,0 +1,11 @@
+<entity-facade-xml type="seed-initial">
+
+    <moqui.security.ArtifactGroup artifactGroupId="TRAINING_API" description="TRAINING REST API (via root resource)"/>
+    <moqui.security.ArtifactGroupMember artifactGroupId="TRAINING_API" artifactTypeEnumId="AT_REST_PATH"
+                                        inheritAuthz="Y" artifactName="/training"/>
+
+    <moqui.security.ArtifactAuthz artifactAuthzId="TRAININGAPI_AUTHZ_ALL" userGroupId="ALL_USERS" artifactGroupId="TRAINING_API"
+                                  authzTypeEnumId="AUTHZT_ALWAYS" authzActionEnumId="AUTHZA_ALL"/>
+
+
+</entity-facade-xml>
