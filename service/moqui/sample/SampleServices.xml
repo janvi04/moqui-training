@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-2.1.xsd">
+    <service verb="update" noun="Products">
+        <actions>
+            <set field="requestParameters" from="ec.web.getParameters()"/>
+            <set field="requestBodyText" from="requestParameters._requestBodyText"/>
+            <set field="id" from="requestParameters.id"/>
+                        <script><![CDATA[
+                        import org.moqui.context.ExecutionContext
+                        import org.moqui.impl.context.ElasticFacadeImpl
+                        ExecutionContext ec = context.ec
+                        def elasticClient=ec.factory.elastic.getClient("default")
+                        Map json = new groovy.json.JsonSlurper().parseText(requestBodyText)
+                        if(elasticClient==null){
+                        ec.message.addMessage("No Elastic Client found for cluster name default", "danger")
+                        return
+                        }
+                        elasticClient.index("shopify-product",id.toString(),json)
+            ]]></script>
+        </actions>
+    </service>
+</services>

@@ -1,6 +1,13 @@
 <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/rest-api-2.1.xsd"
           name="training" displayName="Training REST API" version="2.0.0">
 
+    <resource name="products">
+    <method type="post" require-authentication="anonymous-all">
+        <service name="moqui.sample.SampleServices.update#Products"></service>
+    </method>
+    </resource>
+
+
     <resource name="trainings">
 
     <method type="get"><entity name="training" operation="list"/></method>
