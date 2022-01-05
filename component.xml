@@ -3,6 +3,6 @@
 name="moqui-training" version="1.0.0" >
 
     <depends-on name="mantle-udm"/>
-    <depends-on name="mantle-usm"/>
+    <depends-on name="mantle-usl"/>
 
 </component>
